@@ -8,7 +8,7 @@ export const Header = () => {
         <div className="flex items-center space-x-4 sm:space-x-2">
         <ThemeToggle />
       </div>
-        <Link to="http://localhost:8501/">
+        <Link to="/">
           <img
             src="src/assets/fonts/images/hashira-logo-full.svg"
             alt="Hashira Logo"
@@ -17,12 +17,8 @@ export const Header = () => {
           />
         </Link>
 
-        {/* Optional: Add a site title or tagline here */}
-        {/* <span className="text-lg font-semibold hidden sm:inline">YourAppName</span> */}
-      </div>
-
-      {/* Right section: Theme toggle */}
-      
+        
+      </div>      
     </header>
   );
 };
