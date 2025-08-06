@@ -19,8 +19,8 @@ export const PreviewMessage = ({ message }: { message: message; }) => {
         className={cx(
           'flex gap-4 w-full px-3 py-2 rounded-xl',
           isAssistant
-            ? 'backdrop-blur-md bg-white/70 dark:bg-zinc-500/60 shadow-lg border border-white/30 dark:border-zinc-500/40'
-            : 'bg-zinc-700 text-white ml-auto max-w-2xl' // For user message bubble
+            ? 'backdrop-blur-md bg-white/70 dark:bg-zinc-500/60 shadow-lg border border-white/30 dark:border-zinc-500/40 '
+            : 'backdrop-blur-md bg-zinc-300/70 text-black ml-auto max-w-2xl' // For user message bubble
         )}
       >
         {isAssistant && (
@@ -62,8 +62,8 @@ export const ThinkingMessage = () => {
           </div>
       <div className=" ">
       <span className="animate-bounce inline-block w-2 h-2 bg-blue-600 rounded-full"></span>
-      <span className="animate-bounce delay-150 inline-block w-2 h-2 bg-blue-600 rounded-full"></span>
-      <span className="animate-bounce delay-300 inline-block w-2 h-2 bg-blue-600 rounded-full"></span>
+      <span className="animate-bounce delay-100 inline-block w-2 h-2 bg-blue-600 rounded-full"></span>
+      <span className="animate-bounce delay-200 inline-block w-2 h-2 bg-blue-600 rounded-full"></span>
     </div>
         </div>
       

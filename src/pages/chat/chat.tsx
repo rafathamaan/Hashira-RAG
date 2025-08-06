@@ -50,7 +50,6 @@ export function Chat() {
     }
   }
 
-  // Should background blur be active? (typing or loading)
   const isBlurActive = !!question || isLoading;
 
   return (
@@ -77,11 +76,9 @@ export function Chat() {
         {messages.map((message, index) => (
           <PreviewMessage key={index} message={message} />
         ))}
-
         {isLoading && <ThinkingMessage />}
         <div ref={messagesEndRef} className="shrink-0 min-w-[24px] min-h-[24px]" />
       </div>
-
       {/* Floating, glassy input area */}
       <div className="flex mx-auto px-4 pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
         <div className={`

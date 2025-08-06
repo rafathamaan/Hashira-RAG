@@ -15,14 +15,14 @@ interface ChatInputProps {
 
 const suggestedActions = [
     {
-        title: 'How is the weather',
-        label: 'in Vienna?',
-        action: 'How is the weather in Vienna today?',
+        label: 'Setup',
+        title: 'Garden API',
+        action: 'Explain step by step process to setup Garden API?',
     },
     {
-        title: 'Tell me a fun fact',
-        label: 'about pandas',
-        action: 'Tell me an interesting fact about pandas',
+        label: 'Setup',
+        title: 'Garden SDK',
+        action: 'Explain step by step process to setup Garden SDK?',
     },
 ];
 
@@ -68,7 +68,7 @@ export const ChatInput = ({ question, setQuestion, onSubmit, isLoading }: ChatIn
         />
 
         <Textarea
-        placeholder="Send a message..."
+        placeholder="Ask a Question..."
         className={cx(
             'min-h-[24px] max-h-[calc(75dvh)] overflow-hidden resize-none rounded-xl text-base bg-muted',
         )}
@@ -86,12 +86,12 @@ export const ChatInput = ({ question, setQuestion, onSubmit, isLoading }: ChatIn
                 }
             }
         }}
-        rows={3}
+        rows={1}
         autoFocus
         />
 
         <Button 
-            className="rounded-full p-1.5 h-fit absolute bottom-2 right-2 m-0.5 border dark:border-zinc-600"
+            className="rounded-full p-1.5 h-fit absolute bottom-1 right-2 m-0.5 border dark:border-zinc-600 "
             onClick={() => onSubmit(question)}
             disabled={question.length === 0}
         >
