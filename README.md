@@ -12,7 +12,7 @@ Here’s your updated README.md section, now including instructions for accessin
 - **Glassmorphism UI** & Dark/Light mode
 
 ## Demo
-- **🎬 Screenshots & GIFs:**  
+- **🎬 Screenshots:**  
   See the [`/Demo`](./Demo) folder for high-res screenshots and demo GIFs of the chat UI in action.
 
 ## DarkMode
