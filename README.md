@@ -15,10 +15,14 @@ Here’s your updated README.md section, now including instructions for accessin
 - **🎬 Screenshots & GIFs:**  
   See the [`/Demo`](./Demo) folder for high-res screenshots and demo GIFs of the chat UI in action.
 
-  | Desktop View                                | Assistant Answer Bubble                  |
-  |---------------------------------------------|------------------------------------------|
-  | ![Desktop screenshot    | ![Assistant bubble
-  | ![Theme switching](./Demo/theme-toggle.gif         |
+## DarkMode
+<img src="Demo/Darkmode1.png" width="600" />
+<img src="Demo/Darkmode2.png" width="600" />
+
+## LightMode
+<img src="Demo/Lightmode1.png" width="600" />
+<img src="Demo/Lightmode2.png" width="600" />
+<img src="Demo/Lightmode3.png" width="600" />
 
 ## Getting Started
 
