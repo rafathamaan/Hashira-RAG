@@ -1,12 +1,9 @@
 from dotenv import load_dotenv
 import os
-load_dotenv()  # <-- Must be before you fetch or use os.getenv()
+load_dotenv()  
 import os
 print('CWD:', os.getcwd())
 print('.env exists:', os.path.exists('.env'))
-
-# Double-check it's loaded
-
 print("QDRANT_URL:", os.getenv("QDRANT_URL"))
 print("QDRANT_API_KEY:", os.getenv("QDRANT_API_KEY"))
 import openai, os

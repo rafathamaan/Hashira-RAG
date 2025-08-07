@@ -13,7 +13,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
 
-# Load environment variables
 load_dotenv()
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -67,7 +66,6 @@ def get_llm():
 
 llm = get_llm()
 
-# CUSTOMIZED prompt for deeper, step-by-step, code-rich answers
 system_prompt = (
     "You are an expert assistant for the Garden SDK React Quickstart. "
     "Using the following documentation context, answer the user's question in detail, including all code blocks, multi-step instructions, and important notes relevant to the question. "
@@ -84,7 +82,7 @@ prompt = ChatPromptTemplate.from_messages([
 
 stuff_chain = create_stuff_documents_chain(llm, prompt)
 
-# Increase k to fetch more context (adjust as needed for your use-case)
+
 retriever = qdrant.as_retriever(search_kwargs={"k": 10})
 
 qa_chain = create_retrieval_chain(retriever, stuff_chain)
@@ -93,10 +91,9 @@ def answer_question(query: str, chat_history=None):
     try:
         logger.info("Qdrant search started")
         t0 = time.time()
-        # Optionally add chat history if provided (for follow-up Q&A)
+        
         message_input = query
         if chat_history and isinstance(chat_history, list):
-            # Format history as a sequence of turns for context
             history_text = ""
             for turn in chat_history:
                 if "user" in turn:
@@ -124,7 +121,7 @@ async def ask(request: Request):
     except Exception:
         return {"answer": "❌ Invalid JSON request.", "sources": []}
     question = data.get("question") or data.get("query")
-    chat_history = data.get("history", None)  # Optional: accept conversation history
+    chat_history = data.get("history", None)  
     if not question:
         return {"answer": "❌ Missing 'question' or 'query' field.", "sources": []}
     result = answer_question(question, chat_history=chat_history)

@@ -1,64 +1,120 @@
-# Chatbot UI
+Here’s your updated README.md section, now including instructions for accessing demo photos/GIFs and a demo link for the project:
 
-A lightweight and modern chat interface for LLM interactions with Markdown support!
+# HASHIRA-RAG Frontend
 
-👉 Looking for a version with web search integration?   
-Check out the [`websearch_template`](https://github.com/ChristophHandschuh/chatbot-ui/tree/websearch_template) branch, which includes contributions from [CameliaK](https://github.com/CameliaK)
+## Features
 
-## Overview
+- **Minimalist, elegant chat interface** built with React + TypeScript
+- **Markdown rendering**, code blocks, and smart copy
+- **Live conversation with your docs**—powered by Qdrant & LLMs
+- Supports **backend streaming or non-streaming** responses (API POST/REST)
+- **Perfect match for FastAPI RAG backends** with Qdrant/OpenRouter/Groq
+- **Glassmorphism UI** & Dark/Light mode
 
-A minimalist chat interface built with React and TypeScript, designed to be easily integrated with any LLM backend. Features a clean and modern design.
+## Demo
+- **🎬 Screenshots & GIFs:**  
+  See the [`/Demo`](./Demo) folder for high-res screenshots and demo GIFs of the chat UI in action.
 
-![Demo](demo/image.png)
+  | Desktop View                                | Assistant Answer Bubble                  |
+  |---------------------------------------------|------------------------------------------|
+  | ![Desktop screenshot    | ![Assistant bubble
+  | ![Theme switching](./Demo/theme-toggle.gif         |
 
 ## Getting Started
 
-1. Clone the repository
+**1. Clone the Repo**
+
 ```bash
-git clone https://github.com/ChristophHandschuh/chatbot-ui.git
-cd chatbot-ui
+git clone https://github.com/rafathamaan/Hashira-RAG.git
+cd Hashira-RAG
 ```
 
-2. Install dependencies
+**2. Install dependencies**
+
 ```bash
-npm i
+npm install
 ```
 
-3. Start the development server
+**3. Configure the backend API endpoint**
+
+- By default, the frontend expects your backend at `http://localhost:8000/ask`.
+- If your backend runs elsewhere (e.g., deployed on cloud or LAN),  
+  edit the relevant base URL in your API calls (see `/src/components/custom/chat.tsx` or wherever you invoke `fetch`).
+
+**4. Start the app**
+
 ```bash
 npm run dev
 ```
 
-## Test Mode
+_Visit http://localhost:5173 (or as shown in your terminal) in your browser._
 
-The project includes a test backend for development and testing purposes. To use the test mode:
+## Connecting to Your Backend
 
-1. Navigate to the testbackend directory
-2. Create a Python virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+This project is pre-configured to send POST requests to your FastAPI backend's `/ask` endpoint:
+- **Request Format:**  
+  ```json
+  { "question": "How do I set up the Garden SDK React Quickstart?" }
+  ```
+- **Response Format:**  
+  ```json
+  {
+    "answer": "Your natural language answer...",
+    "sources": ["Chunk 1 content...", "Chunk 2...", "..."]
+  }
+  ```
+
+You can adjust the request shape (e.g., to include chat history or advanced metadata) or the endpoint URL as needed.  
+_See `/src/components/custom/chat.tsx` for the fetch logic to make edits._
+
+## UI Customization
+
+- **Logo & Branding:**  
+  Both header and assistant bubbles can display your `hashira-logomark` SVG (see `/src/components/custom/header.tsx` and `message.tsx`).
+- **Theme Toggle:**  
+  Switch between dark/light/glassy themes from the header bar.
+- **Glassy Bubbles:**  
+  Assistant messages appear with background blur for readability atop your logo.
+
+## How to Use
+
+- Type a question about your docs in the chatbox and press enter/send.
+- The assistant responds using **retrieved documentation and an LLM** (like GPT-3.5, Llama 3 via OpenRouter/Groq, etc).
+- You can view the original doc sources if your backend sends them.
+
+## Project Structure
+
 ```
-3. Install the required package:
-```bash
-pip install websockets
-```
-4. Run the test backend:
-```bash
-python test.py
+.
+├── src/
+│   ├── components/
+│   │   ├── custom/
+│   │   │   ├── chatinput.tsx
+│   │   │   ├── chat.tsx
+│   │   │   ├── message.tsx
+│   │   │   ├── header.tsx
+│   │   │   └── ...
+│   │   └── ...
+│   └── ...
+├── Demo/
+│  
+├── public/
+│   └── assets/
+│       └── fonts/images/hashira-logomark.svg
+├── package.json
+└── README.md
 ```
 
 ## Credits
 
-This project was built by:
-- [Leon Binder](https://github.com/LeonBinder)
-- [Christoph Handschuh](https://github.com/ChristophHandschuh)
-
-Additional contribution by:
-- [CameliaK](https://github.com/CameliaK) – Implemented web search and integrated it into the LLM prompt
-
-Some code components were inspired by and adapted from [Vercel's AI Chatbot](https://github.com/vercel/ai-chatbot).
+- Inspired by [chatbot-ui](https://github.com/ChristophHandschuh/chatbot-ui) and [Vercel’s AI Chatbot template](https://github.com/vercel/ai-chatbot).
 
 ## License
 
-This project is licensed under the Apache License 2.0. Please note that some components were adapted from Vercel's open source AI Chatbot project.
+Apache 2.0
+
+## 📣 Need the Backend?
+
+Use with [Hashira RAG Backend](./Backend)  
+or any FastAPI/LangChain Qdrant-compatible REST endpoint.
+
